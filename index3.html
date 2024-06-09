@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lok Sabha elections Cartogram</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+         #map-container {
+            position: relative;
+        }
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+        #nextHourBtn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <div id="map"></div>
+        <button id="nextHourBtn">Next Hour</button>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map and set its view to India's geographical center
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+        // Set up the OSM layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        // Initialize the map and set its view to India's geographical center
+        // var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+        // Set up the GeoJSON layer
+        // var statesData = {
+        //     "type": "FeatureCollection",
+        //     "features": [
+        //         {
+        //             "type": "Feature",
+        //             "properties": {"name": "Delhi"},
+        //             "geometry": {
+        //                 "type": "Polygon",
+        //                 "coordinates": [[
+        //                     [77.042694, 28.648952],
+        //                     [77.122227, 28.704059],
+        //                     [77.181740, 28.705566],
+        //                     [77.220612, 28.661261],
+        //                     [77.203369, 28.569347],
+        //                     [77.119751, 28.567063],
+        //                     [77.042694, 28.648952]
+        //                 ]]
+        //             }
+        //         },
+        //         // Add more states here
+        //     ]
+        // };
+
+        var statesData={
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"name": "Delhi"},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [77.042694, 28.648952],
+              [77.122227, 28.704059],
+              [77.181740, 28.705566],
+              [77.220612, 28.661261],
+              [77.203369, 28.569347],
+              [77.119751, 28.567063],
+              [77.042694, 28.648952]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"name": "Maharashtra"},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+            [74.031738, 15.758401],
+                [73.550720, 15.390233],
+                [73.070374, 15.723252],
+                [72.657166, 16.081641],
+                [72.691895, 16.534096],
+                [72.394409, 16.888659],
+                [72.559204, 17.230608],
+                [72.905273, 17.155206],
+                [73.267822, 17.108536],
+                [73.540649, 17.009668],
+                [73.889160, 16.768440],
+                [74.228516, 16.699073],
+                [74.440308, 16.861041],
+                [74.568481, 16.951315],
+                [74.664917, 17.094854],
+                [74.774780, 17.230608],
+                [74.949951, 17.288654],
+                [75.219727, 17.440475],
+                [75.430908, 17.606936],
+                [75.482178, 17.921464],
+                [75.644531, 18.055500],
+                [75.757751, 18.340900],
+                [75.973511, 18.421874],
+                [76.231079, 18.597826],
+                [76.272583, 18.880252],
+                [76.441040, 18.972631],
+                [76.774292, 18.842514],
+                [76.903076, 18.670587],
+                [77.127075, 18.676219],
+                [77.131958, 18.877033],
+                [77.090454, 19.093659],
+                [77.013550, 19.293486],
+                [76.910400, 19.566445],
+                [76.718750, 19.681652],
+                [76.716461, 19.942563],
+                [76.693115, 20.171548],
+                [76.611938, 20.354965],
+                [76.579132, 20.674993],
+                [76.363373, 20.826006],
+                [76.157837, 20.980993],
+                [76.093750, 21.125497],
+                [75.842285, 21.198983],
+                [75.779419, 21.440282],
+                [75.540161, 21.648162],
+                [75.328979, 21.777602],
+                [75.168457, 21.951728],
+                [74.953003, 22.103033],
+                [74.849854, 22.283336],
+                [74.789429, 22.456141],
+                [74.812775, 22.636423],
+                [74.731598, 22.769364],
+                [74.622192, 22.855022],
+                [74.545288, 23.082993],
+                [74.396973, 23.219074],
+                [74.213867, 23.339091],
+                [73.996277, 23.454394],
+                [73.853149, 23.646974],
+                [73.767395, 23.824869],
+                [73.568726, 24.049271],
+                [73.308411, 24.247115],
+                [73.020630, 24.327076],
+                [72.833252, 24.432383],
+                [72.833252, 24.576019],
+                [72.697754, 24.704495],
+                [72.574005, 24.839890],
+                [72.551346, 25.049293],
+                [72.655212, 25.204941],
+                [72.673645, 25.365001],
+                [72.791748, 25.481185],
+                [72.921143, 25.608274],
+                [72.997131, 25.756511],
+                [73.097839, 25.899010],
+                [73.208923, 26.028978],
+                [73.234329, 26.183340],
+                [73.426514, 26.233225],
+                [73.607178, 26.325427],
+                [73.685303, 26.506864],
+                [73.825836, 26.602607],
+                [73.996277, 26.626940],
+                [74.125671, 26.777270],
+                [74.277954, 26.910179],
+                [74.487305, 27.012039],
+                [74.606781, 27.084800],
+                [74.760742, 27.167818],
+                [74.916382, 27.292540],
+                [75.021973, 27.372143],
+                [75.166016, 27.446294],
+                [75.261841, 27.589642],
+                [75.475464, 27.680246],
+                [75.701904, 27.775749],
+                [75.894775, 27.876807],
+                [75.965271, 28.041819],
+                [76.068420, 28.174156],
+                [76.228638, 28.288575],
+                [76.449585, 28.393217],
+                [76.553497, 28.550675],
+                [76.630249, 28.727582],
+                [76.706696, 28.884834],
+                [76.846313, 29.018418],
+                [76.997070, 29.133271],
+                [77.154541, 29.265351],
+                [77.227173, 29.388655],
+                [77.311401, 29.521944],
+                [77.450409, 29.609775],
+                [77.525330, 29.782767],
+                [77.604828, 29.953917],
+                [77.702637, 30.123452],
+                [77.796326, 30.303937],
+                [77.936401, 30.437372],
+                [78.083801, 30.538019],
+                [78.244019, 30.659410],
+                [78.366394, 30.777640]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"name": "Uttar Pradesh"},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [77.510376, 30.424455],
+              [78.535156, 30.796686],
+              [79.116211, 30.699258],
+              [79.294434, 30.275085],
+              [78.694458, 29.940779],
+              [77.986450, 29.909507],
+              [77.369385, 29.767786],
+              [77.253418, 29.918743],
+              [77.510376, 30.424455]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"name": "Rajasthan"},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [73.721924, 30.773350],
+              [74.388428, 30.447495],
+              [74.541016, 30.094995],
+              [73.754883, 29.933415],
+              [72.864990, 29.961017],
+              [72.865753, 30.336383],
+              [73.721924, 30.773350]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"name": "Gujarat"},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [68.109131, 24.396308],
+              [68.865967, 23.579392],
+              [70.126953, 23.547399],
+              [71.381836, 23.959913],
+              [71.215820, 24.918288],
+              [69.545898, 25.145340],
+              [68.476563, 24.998677],
+              [68.109131, 24.396308]
+            ]
+          ]
+        }
+      },
+      {
+            "type": "Feature",
+            "properties": {"name": "Goa"},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [73.883057, 15.676033],
+                        [73.959961, 15.687953],
+                        [73.966370, 15.413319],
+                        [73.749084, 15.390180],
+                        [73.883057, 15.676033]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {"name": "Kerala"},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [74.995117, 12.717631],
+                        [77.457275, 10.527642],
+                        [77.699585, 8.803747],
+                        [76.850586, 8.204380],
+                        [74.995117, 12.717631]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {"name": "Tamil Nadu"},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [77.691040, 13.415994],
+                        [77.984619, 11.863132],
+                        [79.868164, 8.825032],
+                        [78.085938, 8.091200],
+                        [77.304688, 8.238265],
+                        [76.646729, 8.088306],
+                        [76.236572, 8.429038],
+                        [75.746460, 10.187378],
+                        [76.611328, 11.554846],
+                        [77.691040, 13.415994]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {"name": "Madhya Pradesh"},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [74.449463, 22.992902],
+                        [75.722656, 21.806868],
+                        [78.721313, 21.059920],
+                        [80.976563, 21.967871],
+                        [81.293945, 23.966176],
+                        [80.722656, 24.776948],
+                        [79.565430, 24.609518],
+                        [78.701172, 23.806061],
+                        [77.563477, 23.984930],
+                        [76.531982, 24.548781],
+                        [75.888672, 24.444775],
+                        [74.533691, 24.867636],
+                        [74.065552, 22.799991],
+                        [74.449463, 22.992902]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {"name": "Andhra Pradesh"},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [81.198730, 15.833516],
+                        [81.846313, 13.808264],
+                        [80.292969, 12.382928],
+                        [79.960937, 13.444730],
+                        [80.004883, 15.735741],
+                        [81.198730, 15.833516]
+                    ]
+                ]
+            }
+        },
+        {
+    "type": "Feature",
+    "properties": {"name": "West Bengal"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [88.0189, 21.5727], // Top-left corner (Jalpaiguri)
+                [88.7849, 21.5727], // Top-right corner (Malda)
+                [88.7849, 23.6980], // Bottom-right corner (Kolkata)
+                [87.5346, 23.6980], // Bottom-left corner (Purba Medinipur)
+                [87.5346, 21.5727], // Left-bottom corner (Jalpaiguri)
+                [88.0189, 21.5727]  // Closing the loop
+            ]
+        ]
+    }
+},
+
+{
+    "type": "Feature",
+    "properties": {"name": "Odisha"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [84.7774, 22.0349], // Top-left corner (Mayurbhanj)
+                [86.9524, 22.0349], // Top-right corner (Balasore)
+                [88.9524, 19.0885], // Bottom-right corner (Malkangiri)
+                [81.9359, 20.0885], // Bottom-left corner (Koraput)
+                [84.9359, 22.0349], // Left-bottom corner (Mayurbhanj)
+                [84.7774, 20.0349]  // Closing the loop
+            ]
+        ]
+    }
+},
+{
+    "type": "Feature",
+    "properties": {"name": "Karnataka"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [74.0744, 15.8513], // Top-left corner (Belgaum)
+                [75.9453, 17.4737], // Top-right corner (Bidar)
+                [77.1025, 14.7100], // Bottom-right corner (Chamarajanagar)
+                [75.7407, 11.6098], // Bottom-left corner (Udupi)
+                [74.0744, 15.8513]  // Closing the loop
+            ]
+        ]
+    }
+}
+
+
+
+   
+    ]
+  };
+  
+
+        // var geojsonLayer = L.geoJSON(statesData).addTo(map);
+
+        var geojsonLayer = L.geoJSON(statesData).addTo(map);
+
+        // Define hypothetical election results for each state
+        var electionResults = {
+            "Delhi": {
+                "BJP": 50,
+                "INC": 30,
+                "AAP": 20
+            },
+
+            "Maharashtra": {
+        "BJP": 40,
+        "INC": 35,
+        "SS": 15,
+        "NCP": 10
+    },
+    "Uttar Pradesh": {
+        "BJP": 33,
+        "SP": 37,
+        // "BSP": 15,
+        "INC": 6
+    },
+    "Rajasthan": {
+        "BJP": 14,
+        "INC": 8,
+        "Other": 3
+    },
+    "Gujarat": {
+        "BJP": 25,
+        "INC": 1,
+        "AAP": 0,
+        "Other": 0
+    },
+    "Kerala": {
+        
+            "LDF": 45,
+            "UDF": 40,
+            "NDA": 15
+        
+        // Add results for other hours
+    },
+    "Tamil Nadu": {
+       
+            "DMK": 50,
+            "AIADMK": 30,
+            "Others": 20
+        
+        // Add results for other hours
+    },
+    "Andhra Pradesh": {
+        
+            "YSRCP": 55,
+            "TDP": 30,
+            "Others": 15
+        
+        // Add results for other hours
+    },
+    "Madhya Pradesh": {
+        
+            "BJP": 50,
+            "INC": 40,
+            "Others": 10
+    
+    },
+    "West Bengal":{
+            "AITS":29,
+            "BJP":12,
+            "INC":1
+            },
+    "Karnataka":{
+        "BJP":17,
+        "INC":9
+    }        
+            
+            // Add results for other states
+        };
+        var currentTime = "08:00 AM";
+
+      
+        function updateElectionResults() {
+            geojsonLayer.eachLayer(function(layer) {
+                var stateName = layer.feature.properties.name;
+                var stateResults = electionResults[stateName];
+                if (stateResults) {
+                    var totalVotes = Object.values(stateResults).reduce((a, b) => a + b, 0);
+                    var bjpPercentage = (stateResults["BJP"] / totalVotes) * 100;
+                    var incPercentage = (stateResults["INC"] / totalVotes) * 100;
+                    var aapPercentage = (stateResults["AAP"] / totalVotes) * 100;
+                    var ysrcpPercentage = (stateResults["YSRCP"] / totalVotes) * 100;
+                    var ldfpPercentage = (stateResults["LDF"] / totalVotes) * 100;
+                    var udfpPercentage = (stateResults["UDF"] / totalVotes) * 100;
+                    var dmkPercentage = (stateResults["DMK"] / totalVotes) * 100;
+                    var AIADMKpercentage = (stateResults["AIADMK"] / totalVotes) * 100;
+                    var tdpPercentage = (stateResults["TDP"] / totalVotes) * 100;
+                    var aictPercentage = (stateResults["AITS"] / totalVotes) * 100;
+                    var othersPercentage = (stateResults["Others"] / totalVotes) * 100;
+                    
+
+                   
+                    layer.setStyle({
+                        fillColor: "rgba(255, 165, 0, " + (incPercentage / 100) + ")",
+                        fillOpacity: 2,
+                        color: "orange",
+                        weight: 1
+                    });
+
+                  
+                    var tooltipContent = "<strong>" + stateName + "</strong><br>" +
+                        "BJP: " + bjpPercentage.toFixed(2) + "%<br>" +
+                        "INC: " + incPercentage.toFixed(2) + "%<br>" +
+                        "AAP: " + aapPercentage.toFixed(2) + "%<br>"+
+                        "YSRCP: " + ysrcpPercentage.toFixed(2) + "%<br>"+
+                        "TDP: " + tdpPercentage.toFixed(2) + "%<br>"+
+                        "LDF: " + ldfpPercentage.toFixed(2) + "%<br>"+
+                        "UDF: " + udfpPercentage.toFixed(2) + "%<br>"+
+                        "DMK: " + dmkPercentage.toFixed(2) + "%<br>"
+                        "AIADMK: " + AIADMKpercentage.toFixed(2) + "%<br>"
+                        "AITS: " + aictPercentage.toFixed(2) + "%<br>"
+                        "others: " + othersPercentage.toFixed(2) + "%";
+
+
+
+
+                    layer.bindTooltip(tooltipContent);
+                }
+            });
+        }
+        function nextHour() {
+            // Increment time by one hour
+            var hours = parseInt(currentTime.split(':')[0]);
+            hours = (hours + 1) % 24;
+            currentTime = (hours < 10 ? '0' : '') + hours + ":00 AM"; // Assuming it's always AM for simplicity
+            updateElectionResults();
+        }
+
+        document.getElementById('nextHourBtn').addEventListener('click', nextHour);
+
+
+        // Call the function to update election results
+        updateElectionResults();
+    </script>
+</body>
+</html>

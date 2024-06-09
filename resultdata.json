@@ -1,0 +1,215 @@
+{
+    "date": "2024-06-04",
+    "country": "India",
+    "election_type": "General",
+    "data": [
+        {
+            "time": "08:00 AM",
+            "total_seats_declared": 50,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 20,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 15,
+                "Aam Aadmi Party": 5,
+                "Others": 10
+            },
+            "percentage_of_votes": 37.0,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "09:00 AM",
+            "total_seats_declared": 75,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 30,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 25,
+                "Aam Aadmi Party": 10,
+                "Others": 10
+            },
+            "percentage_of_votes": 37.1,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "10:00 AM",
+            "total_seats_declared": 100,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 40,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 35,
+                "Aam Aadmi Party": 15,
+                "Others": 10
+            },
+            "percentage_of_votes": 37.15,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "11:00 AM",
+            "total_seats_declared": 150,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 60,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 50,
+                "Aam Aadmi Party": 20,
+                "Others": 20
+            },
+            "percentage_of_votes": 37.18,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "12:00 PM",
+            "total_seats_declared": 200,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 90,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 60,
+                "Aam Aadmi Party": 20,
+                "Others": 30
+            },
+            "percentage_of_votes": 37.2,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "01:00 PM",
+            "total_seats_declared": 250,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 110,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 80,
+                "Aam Aadmi Party": 25,
+                "Others": 35
+            },
+            "percentage_of_votes": 37.25,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "02:00 PM",
+            "total_seats_declared": 300,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 140,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 100,
+                "Aam Aadmi Party": 30,
+                "Others": 30
+            },
+            "percentage_of_votes": 37.28,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "03:00 PM",
+            "total_seats_declared": 350,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 160,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 120,
+                "Aam Aadmi Party": 40,
+                "Others": 30
+            },
+            "percentage_of_votes": 37.3,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "04:00 PM",
+            "total_seats_declared": 400,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 180,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 130,
+                "Aam Aadmi Party": 50,
+                "Others": 40
+            },
+            "percentage_of_votes": 37.3,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "05:00 PM",
+            "total_seats_declared": 450,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 220,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 150,
+                "Aam Aadmi Party": 60,
+                "Others": 20
+            },
+            "percentage_of_votes": 37.32,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "06:00 PM",
+            "total_seats_declared": 500,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 250,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 170,
+                "Aam Aadmi Party": 60,
+                "Others": 20
+            },
+            "percentage_of_votes": 37.34,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "07:00 PM",
+            "total_seats_declared": 530,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 290,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 170,
+                "Aam Aadmi Party": 60,
+                "Others": 10
+            },
+            "percentage_of_votes": 37.35,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        },
+        {
+            "time": "08:00 PM",
+            "total_seats_declared": 543,
+            "leading_party": "Bharatiya Janata Party",
+            "seats_won_by_leading_party": 303,
+            "seats_won_by_other_major_parties": {
+                "Indian National Congress": 150,
+                "Aam Aadmi Party": 50,
+                "Others": 40
+            },
+            "percentage_of_votes": 37.36,
+            "location": {
+                "latitude": 20.5937,
+                "longitude": 78.9629
+            }
+        }
+    ]
+}
